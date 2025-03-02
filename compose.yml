@@ -4,4 +4,5 @@ services:
     container_name: hello-world-nds
     volumes:
       - ./output:/output  # Mount output directory
+      - .:/input/filesystem-nds
     restart: "no"
