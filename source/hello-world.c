@@ -1,44 +1,57 @@
 ﻿#include <nds.h>
-#include <stdio.h>
 #include "hello-world.h"
 
-#include <dir.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <fat.h>
+#include <dirent.h>
 #include <unistd.h>
 
-int main(int argc, char* argv[])
-{
+//---------------------------------------------------------------------------------
+int main(int argc, char **argv) {
+//---------------------------------------------------------------------------------
+
+    // Initialise the console, required for printf
     consoleDemoInit();
-    printf("Hello World\n");
+
+    if (fatInitDefault()) {
+
+
+        DIR *pdir;
+        struct dirent *pent;
+
+        pdir=opendir("/");
+
+        if (pdir){
+
+            while ((pent=readdir(pdir))!=NULL) {
+                if(strcmp(".", pent->d_name) == 0 || strcmp("..", pent->d_name) == 0)
+                    continue;
+                if(pent->d_type == DT_DIR)
+                    iprintf("[%s]\n", pent->d_name);
+                else
+                    iprintf("%s\n", pent->d_name);
+            }
+            closedir(pdir);
+        } else {
+            iprintf ("opendir() failure; terminating\n");
+        }
+
+    } else {
+        iprintf("fatInitDefault failure: terminating\n");
+    }
 
     while(1) {
         swiWaitForVBlank();
         scanKeys();
-        int pressed = keysDown();
-        if(pressed & KEY_START) break;
+        if(keysDown()&KEY_START) break;
     }
 
-    /*
-     * struct stat st;
-    char filename[MAXPATHLEN]; // always guaranteed to be enough to hold a filename
-    DIR_ITER* dir;
-
-    dir = diropen ("/");
-
-    if (dir == NULL)
-    {
-        iprintf ("Unable to open the directory.\n");
-    }
-    else
-    {
-        while (dirnext(dir, filename, &st) == 0)
-        {
-            // st.st_mode & S_IFDIR indicates a directory
-            iprintf ("%s: %s\n", (st.st_mode & S_IFDIR ? " DIR" : "FILE"), filename);
-        }
-    }
-     */
     return 0;
 }
+
 
 
 
