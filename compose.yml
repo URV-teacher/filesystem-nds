@@ -1,3 +1,7 @@
+# To use, make a copy of this file in the project root of the NDS project that you want to compile.
+# Then, use "docker compose up" to compile.
+
+
 services:
   bmde-linux:
     image: aleixmt/bmde-linux:latest
