@@ -1,8 +1,7 @@
 services:
-  compiler:
+  bmde-linux:
     image: aleixmt/bmde-linux:latest
-    container_name: hello-world-nds
+    #build: .  # Uncomment to use Dockerfile to extend base image
     volumes:
-      - ./output:/output  # Mount output directory
-      - .:/input/filesystem-nds
-    restart: "no"
+     - ../:/input/  # Makefile expected in the same directory as this compose file.
+                    # Output binaries will have the same name as project folder name  .

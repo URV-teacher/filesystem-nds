@@ -1,9 +1,7 @@
+# Use a lightweight base image
 FROM aleixmt/bmde-linux:latest
 
-COPY . /workspace/
+# Modify base image if desired
 
-WORKDIR /workspace/hello-world-nds
-
-RUN make clean && make && make run
-
-CMD ["cp", "hello-world-nds.nds", "/output/"]
+# Change the entrypoint if desired
+#ENTRYPOINT ["/entrypoint.sh"]
