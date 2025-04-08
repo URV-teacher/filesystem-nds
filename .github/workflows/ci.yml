@@ -20,8 +20,8 @@ jobs:
       - name: Upload NDS Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hello-world-nds.nds
-          path: hello-world-nds.nds
+          name: filesystem-nds.nds
+          path: filesystem-nds.nds
 
   release:
     name: Create Release
@@ -32,12 +32,12 @@ jobs:
       - name: Download NDS Artifact
         uses: actions/download-artifact@v4
         with:
-          name: hello-world-nds.nds
+          name: filesystem-nds.nds
 
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: hello-world-nds.nds
+          artifacts: filesystem-nds.nds
           tag: v1.0
           name: "Release v1.0"
           body: "Automated release of version v1.0"

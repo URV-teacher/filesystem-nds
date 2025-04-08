@@ -282,6 +282,10 @@ areas of knowledge of Computer Science, Telematics and Mathematics.
 
 
 
+
+
+
+https://www.forums.desmume.org/viewtopic.php?id=2062
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [forks-shield]: https://img.shields.io/github/forks/URV-teacher/hello-world-nds.svg?style=for-the-badge&label=Fork&maxAge=2592000
@@ -331,3 +335,7 @@ areas of knowledge of Computer Science, Telematics and Mathematics.
 [desmume-download]: https://downloads.sourceforge.net/project/desmume/desmume/0.9.11/desmume-0.9.11.tar.gz?ts=gAAAAABnhc_LLNXkkIdrqkebrKXszf8YkH-7HsvwXjzGhyF4sT5kH7AzrE-_Tasz2RQd7r2cmcQdqaR6wh1yk2pYr-NUXWoQkg%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fdesmume%2Ffiles%2Fdesmume%2F0.9.11%2Fdesmume-0.9.11.tar.gz%2Fdownload
 
 
+
+
+
+https://forums.desmume.org/viewtopic.php?pid=2539

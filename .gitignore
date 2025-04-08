@@ -6,3 +6,5 @@
 *.map
 *.lst
 *.d
+
+nohup.out
