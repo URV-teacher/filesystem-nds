@@ -14,5 +14,3 @@ RUN mkdir -p /tools && \
 RUN /entrypoint.sh
 
 ENTRYPOINT /bin/sh -c "/tools/dlditool /tools/mpcf.dldi /input/filesystem-nds/filesystem-nds.nds"
-
-
