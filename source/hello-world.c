@@ -60,9 +60,9 @@ int main(int argc, char **argv) {
     }
 
     // Bucle infinito para mantener la pantalla encendida
-    while (1) swiWaitForVBlank();
+    //while (1) swiWaitForVBlank();
 
-    return 0;
+    exit(0);
 }
 
 
