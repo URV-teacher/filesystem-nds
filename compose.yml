@@ -1,9 +1,15 @@
 
 services:
-  compiler:
-    build: .
+  bmde-linux:
     image: aleixmt/bmde-linux:latest
-    container_name: hello-world-nds
+    container_name: bmde-linux
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - .:/input/filesystem-nds
-    restart: "no"
+      - ./:/input/filesystem-nds
+    entrypoint: sh -c "cd /input/filesystem-nds && make clean && make && dlditool /bmde/dlditool/mpcf.dldi /input/filesystem-nds/filesystem-nds.nds"
+    user: 1000:1000
+
+
+
