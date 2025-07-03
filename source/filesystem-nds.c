@@ -37,11 +37,11 @@ int main(int argc, char **argv) {
     }
 
     // Open file for writing
-    test = fopen("/out.txt", "w");
+    test = fopen("/output.txt", "w");
     if (!test) {
         printf("No se pudo abrir el archivo para escribir\n");
     } else {
-        printf("Escribiendo en out.txt...\n");
+        printf("Escribiendo en output.txt...\n");
 
         // Usar fwrite en lugar de fprintf
         const char *text1 = "Hola, este es un test en DeSmuME.\n";
