@@ -11,6 +11,7 @@ services:
     user: 1000:1000
 
   runner-cli:
+    image: aleixmt/desmume-cli:latest
     container_name: runner-cli
     build:
       context: .
@@ -20,10 +21,12 @@ services:
       - ./fs:/fs
     depends_on:
       - compiler
-    #entrypoint: sh -c "desmume-cli /roms/rom.nds --disable-sound --cflash-image /fs/fat.img"
+    # apt-get update && apt-get install -y unzip && unzip /fs/fat.zip &&
+    entrypoint: sh -c "desmume-cli /roms/filesystem-nds.nds --disable-sound --cflash-image /fs/fat.img"
 
   watchdog:
-    container_name: wathdog
+    image: aleixmt/desmume-watchdog:latest
+    container_name: watchdog
     build:
       context: .
       dockerfile: watchdog.Dockerfile

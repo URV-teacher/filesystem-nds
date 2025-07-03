@@ -1,5 +1,5 @@
 ﻿#include <nds.h>
-#include "hello-world.h"
+#include "filesystem-nds.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,10 +59,23 @@ int main(int argc, char **argv) {
         printf("Escritura completada.\n");
     }
 
-    // Bucle infinito para mantener la pantalla encendida
-    //while (1) swiWaitForVBlank();
+    // Open file for writing
+    test = fopen("/EXIT_CODE", "w");
+    if (!test) {
+        printf("No se pudo abrir el archivo para escribir\n");
+    } else {
+        printf("Escribiendo en EXIT_CODE...\n");
 
-    exit(0);
+        // Usar fwrite en lugar de fprintf
+        const char *text1 = "0";
+
+        if (fwrite(text1, 1, strlen(text1), test) != strlen(text1)) {
+            printf("Error al escribir en el archivo\n");
+        }
+
+        fclose(test);
+        printf("Escritura completada.\n");
+    }
 }
 
 
